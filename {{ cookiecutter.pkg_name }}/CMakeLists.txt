@@ -13,7 +13,6 @@ find_package(fmt CONFIG REQUIRED)
 
 #**************************************************************************************************
 # Include *****************************************************************************************
-include_directories(${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # get_cmake_property(_variableNames VARIABLES)
@@ -40,4 +39,4 @@ SET(SOURCES
 #**************************************************************************************************
 # Make configuration ******************************************************************************
 add_executable({{ cookiecutter.pkg_name }} ${SOURCES})
-target_link_libraries({{ cookiecutter.pkg_name }} fmt::fmt spdlog::spdlog)
+target_link_libraries({{ cookiecutter.pkg_name }} fmt::fmt-header-only spdlog::spdlog_header_only cxxopts::cxxopts)
