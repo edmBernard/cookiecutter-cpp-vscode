@@ -1,15 +1,16 @@
-project({{ cookiecutter.pkg_name }})
+cmake_minimum_required(VERSION 3.21)
 
 #**************************************************************************************************
-# General cMake settings **************************************************************************
-cmake_minimum_required(VERSION 3.5)
+# Project *****************************************************************************************
+project({{ cookiecutter.pkg_name }}
+        HOMEPAGE_URL {{ cookiecutter.github_url }}
+        LANGUAGES CXX)
 
 #**************************************************************************************************
 # Find Package ************************************************************************************
 find_package(cxxopts REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
-
 
 #**************************************************************************************************
 # Include *****************************************************************************************
@@ -23,11 +24,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 #**************************************************************************************************
 # Set compiler ************************************************************************************
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  add_compile_options(/std:c++latest /Oy /utf-8)
+  add_compile_options(/Oy /utf-8)
 else()
-  add_compile_options(-std=c++2a -fPIC -O3 -fno-omit-frame-pointer)
+  add_compile_options(-fPIC -O3 -fno-omit-frame-pointer)
 endif()
 
 #**************************************************************************************************
@@ -39,4 +42,4 @@ SET(SOURCES
 #**************************************************************************************************
 # Make configuration ******************************************************************************
 add_executable({{ cookiecutter.pkg_name }} ${SOURCES})
-target_link_libraries({{ cookiecutter.pkg_name }} fmt::fmt-header-only spdlog::spdlog_header_only cxxopts::cxxopts)
+target_link_libraries({{ cookiecutter.pkg_name }} PRIVATE fmt::fmt-header-only spdlog::spdlog_header_only cxxopts::cxxopts)
