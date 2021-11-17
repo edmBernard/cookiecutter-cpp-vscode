@@ -1,0 +1,22 @@
+{
+  // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+  // Pointez pour afficher la description des attributs existants.
+  // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Run Target",
+          "type": "cppvsdbg",
+          "request": "launch",
+          "program": "${command:cmake.launchTargetPath}",
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "console": "internalConsole",
+          "internalConsoleOptions": "openOnSessionStart",
+          "environment": [{
+              "name": "SPDLOG_LEVEL",
+              "value": "debug"
+              }],
+      }
+  ]
+}

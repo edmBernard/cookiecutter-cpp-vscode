@@ -3,8 +3,7 @@ cmake_minimum_required(VERSION 3.21)
 #**************************************************************************************************
 # Project *****************************************************************************************
 project({{ cookiecutter.pkg_name }}
-        HOMEPAGE_URL {{ cookiecutter.github_url }}
-        LANGUAGES CXX)
+        HOMEPAGE_URL {{ cookiecutter.github_url }})
 
 #**************************************************************************************************
 # Find Package ************************************************************************************
@@ -28,9 +27,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  add_compile_options(/Oy /utf-8)
+  add_compile_options(/Oy /utf-8 /Zc:__cplusplus /DUNICODE /D_UNICODE)
 else()
-  add_compile_options(-fPIC -O3 -fno-omit-frame-pointer)
+  add_compile_options(-fPIC -O3)
 endif()
 
 #**************************************************************************************************

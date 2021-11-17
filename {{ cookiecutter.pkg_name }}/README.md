@@ -27,7 +27,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake
 cmake --build . --config Release
 ```
 
-the server executable is named `{{ cookiecutter.pkg_name }}`
+The executable is named `{{ cookiecutter.pkg_name }}`
 
 ## Disclaimer
 
