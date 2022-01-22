@@ -2,5 +2,6 @@
   "project_name": "CookieCutter Cpp VSCode",
   "pkg_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
   "github_url": "https://github.com/edmBernard/{{cookiecutter.pkg_name}}",
+  "github_clone_url": "{{ cookiecutter.github_url|replace('https://github.com/','git@github.com:' }}",
   "author": "Erwan BERNARD"
 }
