@@ -7,16 +7,12 @@
 
 ### Dependencies
 
-We use [vcpkg](https://github.com/Microsoft/vcpkg) to manage dependencies
+We use [vcpkg](https://github.com/Microsoft/vcpkg) to manage dependencies. they are define in the vcpkg.json file.
 
-This project depends on:
-- [cxxopts](https://github.com/jarro2783/cxxopts): Command line argument parsing
-- [fmt](https://fmt.dev/latest/index.html): A modern formatting library
-- [spdlog](https://github.com/gabime/spdlog): Very fast, header-only/compiled, C++ logging library
-
+To install dependencies just run the following command in the folder.
 
 ```
-./vcpkg install spdlog cxxopts fmt
+./vcpkg install
 ```
 
 ### Build
