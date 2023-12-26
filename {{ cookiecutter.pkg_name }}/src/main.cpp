@@ -33,8 +33,8 @@ int main(int argc, char *argv[]) try {
 
   return EXIT_SUCCESS;
 
-} catch (const cxxopts::exceptions::parsing &e) {
-  spdlog::error("Parsing options : {}", e.what());
+} catch (const cxxopts::exceptions::exception &e) {
+  spdlog::error("Command Line : {}", e.what());
   return EXIT_FAILURE;
 
 } catch (const std::exception &e) {
