@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) try {
 
   return EXIT_SUCCESS;
 
-} catch (const cxxopts::OptionException &e) {
+} catch (const cxxopts::exceptions::parsing &e) {
   spdlog::error("Parsing options : {}", e.what());
   return EXIT_FAILURE;
 
